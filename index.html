@@ -1,30 +1,54 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Hank Quinlan, Horrible Cop</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Hank Quinlan!</h1>
-				<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-			</ul>
-		</footer>
-	</body>
-</html>
+---
+layout: default
+title: Hank Quinlan, Horrible Cop
+---
+<div class="blurb">
+	<h1>Hi there, I'm Hank Quinlan!</h1>
+	<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
+</div><!-- /.blurb -->
+Notice the plain text at the top of the file. Jekyll calls this the Front-matter. Any file on your site that contains this will be processed by Jekyll. Every time you commit a file that specifies layout: default at the top, Jekyll will magically generate the full HTML document by replacing {{ content }} in _layouts/default.html with the contents of the committed file. Awesome!
+
+Setting up a Blog
+A Jekyll-based blog uses the same conventions that we've familiarized ourselves with in the previous steps, but takes things further by adding a few more for us to follow. Jekyll is very flexible allowing you to extend your site as you wish, but in this guide we're only going to cover the basics: creating a post, making a page to list our posts, creating a custom permalink for posts, and creating an RSS feed for the blog.
+
+We'll want to create a new layout for our blog posts called post.html and a folder to store each individual post called _posts/.
+
+11 Start by creating the layout. Create a file named post.html in your _layouts folder. Notice the post layout uses the default layout as it's base, and adds a couple new liquid tags to print the title of the post and date:
+
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<p class="meta">{{ page.date | date_to_string }}</p>
+
+<div class="post">
+  {{ content }}
+</div>
+12 Make a _posts/ directory where we'll store our blog posts. Inside that folder will be our first post. Jekyll is very strict with how these files are named, so pay attention. It must follow the convention YYYY-MM-DD-title-of-my-post.md. This file name gets translated into the permalink for the blog post. So in this example, we'll create a file named 2014-04-30-hank-quinlan-site-launched.md:
+
+---
+layout: post
+title: "Hank Quinlan, Horrible Cop, Launches Site"
+date: 2014-04-30
+---
+
+Well. Finally got around to putting this old website together. Neat thing about it - powered by [Jekyll](http://jekyllrb.com) and I can use Markdown to author my posts. It actually is a lot easier than I thought it was going to be.
+Note the file extension .md stands for Markdown, and the Markdown syntax used inside the file gets converted to HTML by Jekyll. Like Wikitext, Markdown is a markup language with a syntax closer to plain text. The idea of Markdown is to get out of the author's way so they can write their HTML content quickly, making Markdown very suitable as a blog authoring syntax. If you aren't already, you'll want to get familiar with Markdown syntax, and this printable cheatsheet (PDF) will be your best friend.
+
+After committing the new post, navigate to http://username.github.io/YYYY/MM/DD/name-of-your-post to view it.
+
+All this is great, but your readers won't always know the exact URLs of your posts. So next we need to create a page on our site that lists each post's title and hyperlink. You could create this list on your homepage or alternatively, create a blog subpage that collects all of your posts. We're going to do the latter.
+
+13 Create a blog directory and create a file named index.html inside it. To list each post, we'll use a foreach loop to create an unordered list of our blog posts:
+
+---
+layout: default
+title: Hank Quinlan's Blog
+---
+	<h1>{{ page.title }}</h1>
+	<ul class="posts">
+
+	  {% for post in site.posts %}
+	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	  {% endfor %}
+	</ul>
