@@ -6,14 +6,19 @@
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
 		</head>
 		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<!-- 		        	<li><a href="/about">About</a></li> -->
-	        		<li><a href="/portfolio">Portfolio</a></li>
-<!-- 	        		<li><a href="/blog">Blog</a></li> -->
-	    		</ul>
-			</nav>
+            <nav>
+                <ul>
+                    {% for link in site.navigation %}
+                        {% assign current = nil %}
+                        {% if page.url contains link.url %}
+                            {% assign current = 'current' %}
+                        {% endif %}
+                        <li class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+                            <a href="{{ link.url }}">{{ link.title }}</a>
+                        </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {% endfor %}
+                </ul>
+            </nav>
 			<div class="container">
 			
 			{{ content }}

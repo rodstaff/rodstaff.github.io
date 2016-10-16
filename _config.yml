@@ -1,2 +1,18 @@
-name: Rod K Test
-markdown: kramdown
+#Site settings
+name: RodK Website
+url:  "http://www.rodkay.tech"  #Host name
+
+navigation:  #Navigation title and links
+ - title: Home
+   url: /home    
+ - title: Portfolio
+   url: /portfolio
+ - title: Blog
+   url: /blog
+   
+#Build settings
+markdown: kramdown  
+
+
+
+
