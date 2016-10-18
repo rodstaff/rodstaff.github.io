@@ -42,7 +42,7 @@
 	                |         |_ reducers*   <-- Redux/React section
 	                |
                         |__scss*__
-                        |         |_style.scss  <-- styling (not used)
+                        |         |_style.scss  <-- styling (for future use)
                         |
                         |_ store.js             <-- Redux/React section
 
@@ -141,7 +141,8 @@
  <pre>
       $npm run wbp                                  <-- "wbp" is the script defined in package.json (see Fig. 2.3)
 
-      $cp bsrc/bundle.js ../<em class="noColor">newAppName</em>/bundle.js    <-- <em class="noColor">newAppName</em> is the name of the new app which will be deployed to Heroku.  
+      $cp bsrc/bundle.js ../<em class="noColor">newAppName</em>/bundle.js    <-- "bsrc" is the output path defined in webpack.config.js (see Fig. 2.2)
+                                                    <-- <em class="noColor">newAppName</em> is the name of the new app which will be deployed to Heroku.  
  </pre>
 
         <p>The folder location of the "new app" should ideally be located in the same directory as your current app.  &nbsp;&nbsp;In my case, I called this separate app <a href="https://github.com/rodstaff/redux-react-heroku"><em>redux-react-heroku</em></a>. &nbsp;&nbsp;Fig. 3.2 shows its flat folder structure and as you can see, it has only a total of 6 functional files--around 20 less files (inside the folders) than the development app (compare with Fig. 2.1)!</p>
