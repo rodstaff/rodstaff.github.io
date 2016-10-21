@@ -63,7 +63,7 @@
     module.exports = {
       entry: './routes', 
       output: {
-        path: '../redux-react-heroku',   <-- When '@npm run wbp' is executed, the bundle.js file is moved into the adjacent folder called 'redux-react-heroku'
+        path: '../redux-react-heroku',   <-- When '@npm run wbp' is executed, the bundle.js file is moved into the adjacent folder
         filename: 'bundle.js'  
       },
       devServer: {
@@ -122,13 +122,13 @@
     }
  </pre>
 
-        <p>The redux-react-routes app uses client side rendering but in development you can use webpack-dev-server which uses a background server; your code then updates automatically without refreshing the browser.  &nbsp;&nbsp;To do this, inside your working directory simply type the command shown in Fig. 2.4 in your terminal.</p>
+        <p>The redux-react-routes app uses client side rendering but in development you can use the webpack-dev-server which you can set for auto-browser refresh when you change any file content.  &nbsp;&nbsp;To do this, inside your working directory simply type the command in your terminal as shown in Fig. 2.4.</p>
 
       <p><d>Fig. 2.4 &nbsp;&nbsp;Using the Webpack-Dev-Server.</d></p>
  <pre>
       $npm run dev      <-- "dev" is the script defined in package.json (see Fig. 2.3)
 
-      localhost:8089    <-- type this in your browser window (see Fig. 2.2)
+      localhost:8089    <-- type this in your browser ('8089' is the port no. in Fig. 2.2)
  </pre>
 
       <h3>3. &nbsp;&nbsp;Heroku Deployment</h3>
@@ -138,7 +138,7 @@
  <p><d>Fig. 3.1 &nbsp;&nbsp;Bundle with Webpack and Deploy.</d></p>
  <pre>
       $npm run wbp                                  <-- "wbp" is the script defined in package.json (see Fig. 2.3)
-                                                    <-- This generates bundle.js and moved for deployment (see Fig. 2.2)
+                                                    <-- This generates the bundle.js file and moved for deployment (see Fig. 2.2)
       $cd ../redux-react-heroku                     <-- Change working directory to the adjacent directory/folder
       $git push heroku master                       <-- Deploy to Heroku!
  </pre>
