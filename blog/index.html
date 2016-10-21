@@ -26,20 +26,18 @@
 	      &nbsp;&nbsp;&nbsp;&nbsp;Those marked in (red)^ are the only files that will be used in Heroku deployment.
 
  <pre>
-	        bsrc* --|_ <em>bundle.js^</em>           <-- bundled by Webpack
-
-	      routes* --|_ index.js             <-- entry point of the app
-	                |_ app.js               <-- topmost react-route component
+	      routes* --|___ index.js             <-- entry point of the app
+	                |___ app.js               <-- topmost react-route component
 	                |___ container.js  
 	                |___ home.js       
 	                |___.                   
 	                |___.             
 
 	         dev* --|__js*____
-  	                |         |_ actions*    <-- Redux/React section
-	                |         |_ components* <-- Redux/React section
-	                |         |_ containers* <-- Redux/React section
-	                |         |_ reducers*   <-- Redux/React section
+  	                |         |_ actions*     <-- Redux/React section
+	                |         |_ components*  <-- Redux/React section
+	                |         |_ containers*  <-- Redux/React section
+	                |         |_ reducers*    <-- Redux/React section
 	                |
                         |__scss*__
                         |         |_style.scss  <-- styling (for future use)
@@ -65,7 +63,7 @@
     module.exports = {
       entry: './routes', 
       output: {
-        path: './bsrc',
+        path: '../redux-react-heroku',   <-- When '@npm run wbp' is executed, the bundle.js file is moved into the adjacent folder called 'redux-react-heroku'
         filename: 'bundle.js'  
       },
       devServer: {
@@ -137,24 +135,24 @@
 
         <p>Once you have done sufficient debugging and testing and you're ready to proudly show the world what you have done, it's time to deploy to Heroku. &nbsp;&nbsp;For this you will need to create and copy the the bundle.js file with Webpack as shown in Fig. 3.1.</p>
 
- <p><d>Fig. 3.1 &nbsp;&nbsp;Bundle with Webpack.</d></p>
+ <p><d>Fig. 3.1 &nbsp;&nbsp;Bundle with Webpack and Deploy.</d></p>
  <pre>
       $npm run wbp                                  <-- "wbp" is the script defined in package.json (see Fig. 2.3)
-
-      $cp bsrc/bundle.js ../<em class="noColor">newAppName</em>/bundle.js    <-- "bsrc" is the output path defined in webpack.config.js (see Fig. 2.2)
-                                                    <-- <em class="noColor">newAppName</em> is the name of the new app which will be deployed to Heroku.  
+                                                    <-- This generates bundle.js and moved for deployment (see Fig. 2.2)
+      $cd ../redux-react-heroku                     <-- Change working directory to the adjacent directory/folder
+      $git push heroku master                       <-- Deploy to Heroku!
  </pre>
 
-        <p>The folder location of the "new app" should ideally be located in the same directory as your current app.  &nbsp;&nbsp;In my case, I called this separate app <a href="https://github.com/rodstaff/redux-react-heroku"><em>redux-react-heroku</em></a>. &nbsp;&nbsp;Fig. 3.2 shows its flat folder structure and as you can see, it has only a total of 6 functional files--around 20 less files (inside the folders) than the development app (compare with Fig. 2.1)!</p>
+        <p>Fig. 3.2 shows <a href="https://github.com/rodstaff/redux-react-heroku"><em>redux-react-heroku</em></a> flat folder structure created specifically for Heroku deployment; and as you can see, it has only a total of 6 functional files--around 20 less files (inside the folders) than the development app! &nbsp;&nbsp;Compare with Fig. 2.1</p>
 
         <p><d>Fig. 3.2 &nbsp;&nbsp;Redux-React-Heroku App (Flat) Folder Structure.</d></p>
 
  <pre>
       server.js        <-- entry point of the app
-      <em>bundle.js</em>          
+      bundle.js          
       <em>index.html</em>
       <em>style.css</em>
-      <em>package.json</em>     <-- The only file copied (in red) that will change!
+      <em>package.json</em>     <-- The only file copied (in red) that will change in content!
       Procfile
       node_modules     <-- module installs (included in .gitignore)
  </pre>
@@ -189,7 +187,7 @@
       web: node server.js
  </pre>
 
-        <p>Figs 3.1 to 3.5 show how super lightweight this app really is!  &nbsp;&nbsp;Note that now it uses server side rendering with only 6 (5 if you don't include the console.log command) lines of code! &nbsp;&nbsp;Because the result of all the long (but fun) sleepless nights of development are finally bundled up into one single bundle.js file, you will note in Fig. 3.4 how simple the package.json file becomes.  &nbsp;&nbsp;You just need to make sure of the express and node versions that you used.  &nbsp;&nbsp;Finally, the Procfile will instruct Heroku how to execute and run the app after deployment.</p>
+        <p>Figs 3.1 to 3.5 show how super lightweight this app really is.  &nbsp;&nbsp;Note that now it uses server side rendering with only 6 (5 if you don't include the console.log command) lines of code! &nbsp;&nbsp;Because the result of all the long (but fun) sleepless nights of development are finally bundled up into one single bundle.js file, you will note in Fig. 3.4 how simple the package.json file becomes.  &nbsp;&nbsp;You just need to make sure of the express and node versions that you used.  &nbsp;&nbsp;Finally, the Procfile will instruct Heroku how to execute and run the app after deployment.</p>
 
       <h3>4. &nbsp;&nbsp;Combining The Two Apps Into One</h3>
         <p>In the examples here, I used two separate apps for development and production or deployment. &nbsp;&nbsp;Now, it is of course possible to combine these into just one app by the smart use of the .gitignore file and having two versions of the package.json file to make sure that the deployed version remain super lightweight. &nbsp;&nbsp;I shall write a separate blog about this soon to give a graphic explanation.</p>
