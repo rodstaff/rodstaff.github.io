@@ -44,12 +44,16 @@
                         |
                         |_ store.js             <-- Redux/React section
 
+              public* --
+                        |_ <em>index.html^</em>
+                        |_ <em>style.css^</em>
+
          node_modules*--|_ .                    <-- module installs (included in .gitignore)
                         |_ .
                         |_ .
        
-          <em>index.html^</em>
-           <em>style.css^</em>
+          
+           
         <em>package.json^</em>
     webpack.config.js
  </pre>
@@ -78,7 +82,7 @@
  <pre>
    "scripts": {
       "wbp": "webpack",
-      "dev": "webpack-dev-server --progress --colors --hot --inline"
+      "dev": "webpack-dev-server --progress --colors --hot --inline --content-base public/"
    },
    "dependencies": {
       "axios": "^0.14.0",
