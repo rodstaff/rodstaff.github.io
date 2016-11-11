@@ -2,7 +2,8 @@
 name: RodK Website
 url:  "http://www.rodkay.tech"  #Host name
 
-navigation:  #Navigation title and links
+#Navigation title and links
+navigation:  
  - title: Home
    url: /home    
  - title: Portfolio
