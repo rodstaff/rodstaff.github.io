@@ -1,0 +1,95 @@
+nav ul, footer ul {
+    font-family: 'Cabin';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+}
+nav ul li, footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+
+nav li.current a {
+    color: orange;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+a d {
+    text-decoration: underline;
+      color: #19198c;
+}
+a {
+    text-decoration: none;
+/*    color: #999; light gray */
+/*    color: #f0d02d; dark gold*/
+      color: #19198c;
+}
+a:hover {
+    color: #f0d02d;
+}
+p {
+    font-family: 'Cabin';
+    font-size: 1.3em;
+    line-height: 1.4em;
+    color: #333;
+}
+p a.btn {
+    background-color: #dbf0fd;
+   /* border: none;*/
+    border: 1px solid rgb(192,192,192);
+    border-radius: 15px;
+    color: #111;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin: 0px 0px;
+    cursor: pointer;
+}
+section {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 15px;
+    color: #111;
+    padding: 0px 15px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+h1 {
+    font-size: 3em;
+    font-family: 'Cabin';
+}
+h2 {
+    font-size: 2.5em;
+    font-family: 'Cabin';
+}
+h3 {
+    font-size: 2em;
+    font-family: 'Cabin';
+}
+h4 {
+    font-size: 1.6em;
+    font-family: 'Cabin';
+}
+h5 {
+    font-size: 1.1em;
+    font-family: 'Cabin';
+}
+footer {
+    border-top: 1px solid #d5d5d5;
+    font-size: .8em;
+}
+ul.posts { 
+    margin: 20px auto 40px; 
+    font-size: 1.5em;
+}
+ul.posts li {
+    list-style: none;
+}
