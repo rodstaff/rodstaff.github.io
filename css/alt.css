@@ -1,8 +1,16 @@
-nav ul, footer ul {
+nav ul {
     font-family: 'Cabin';
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    font-size: 1.3em;
+}
+footer ul {
+    font-family: 'Cabin';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+    font-size: 1.4em;
 }
 nav ul li, footer ul li {
     display: inline;
@@ -84,7 +92,6 @@ h5 {
 }
 footer {
     border-top: 1px solid #d5d5d5;
-    font-size: .8em;
 }
 ul.posts { 
     margin: 20px auto 40px; 
@@ -92,4 +99,5 @@ ul.posts {
 }
 ul.posts li {
     list-style: none;
+    font-size: 1.5em;
 }
